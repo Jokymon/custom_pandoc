@@ -11,3 +11,10 @@ RUN pip3 install --no-cache --upgrade pip setuptools fontawesome pandocfilters p
 # Patch pandoc_fignos
 COPY ./core.patch /usr/lib/python3.10/site-packages/pandocxnos
 RUN cd /usr/lib/python3.10/site-packages/pandocxnos && patch -p0 < core.patch
+# Add additional filters
+COPY ./pandoc-wrapfig.py /usr/local/lib/pandoc/filters/
+COPY ./pandoc_admon_filter2.py /usr/local/lib/pandoc/filters/
+COPY ./parse-html.lua /usr/local/lib/pandoc/filters/
+
+# Add the new pandoc filter directory as parameter to pandoc
+ENTRYPOINT ["/usr/local/bin/pandoc", "--data-dir=/usr/local/lib/pandoc/"]
