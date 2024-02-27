@@ -7,6 +7,8 @@ PDFs. The following features are integrated in this image:
     and all tools for running PlantUML
   * Pandoc filter for the wrapfig LaTeX package from
     https://github.com/scotthartley/pandoc-wrapfig
+  * The Pandoc include filter from
+    https://github.com/DCsunset/pandoc-include
   * The pandoc-fignos package with a patch for Pandoc >= 3.x
   * A self implemented admonition filter to support block-based admonitions
 
